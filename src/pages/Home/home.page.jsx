@@ -32,6 +32,7 @@ export default function Home() {
 			setLogs(groupByDate(response.data.filter((activity) => activity.is_archived === archived)));
 		} catch (error) {
 			console.error('Error fetching categories:', error);
+			toast.error('Failed to fetch activity.');
 		}
 	};
 
@@ -64,7 +65,7 @@ export default function Home() {
 			toast(res.data);
 			await getActivities(true); // to refresh the data
 		} catch (error) {
-			showToast('Failed to reset all calls.');
+			toast.error('Failed to reset all calls.');
 		}
 	};
 
@@ -80,7 +81,7 @@ export default function Home() {
 			toast('All calls archived successfully!');
 			await getActivities(false); // to refresh the data
 		} catch (error) {
-			toast('Failed to archive all calls.');
+			toast.error('Failed to archive all calls.');
 		}
 	};
 
