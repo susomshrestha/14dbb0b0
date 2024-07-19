@@ -5,6 +5,7 @@ import Home from './pages/Home/home.page.jsx';
 import Header from './components/Header/Header.jsx';
 import './css/app.css';
 import Detail from './pages/Detail/detail.page.jsx';
+import { Toaster } from 'react-hot-toast';
 
 const App = () => {
 	return (
@@ -13,6 +14,7 @@ const App = () => {
 			<div className="container-view overflow-y-auto h-[calc(100%-60px)] relative">
 				<Outlet></Outlet>
 			</div>
+			<Toaster />
 		</div>
 	);
 };
@@ -27,7 +29,7 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path: 'detail',
+				path: 'detail/:id',
 				element: <Detail />,
 			},
 		],
